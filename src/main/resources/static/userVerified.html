@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Verificación de usuario</title>
+</head>
+<body>
+<h1>Verificación de usuario</h1>
+<input type="email" id="email" placeholder="Ingrese su correo electrónico">
+<button onclick="verifyUser()">Verificar usuario</button>
+<p id="message"></p>
+<script>
+        function verifyUser() {
+            const email = document.getElementById("email").value;
+            const url = "/api/verify?email=" + email;
+            fetch(url)
+                .then(response => response.text())
+                .then(message => document.getElementById("message").innerHTML = message);
+        }
+    </script>
+</body>
+</html>
